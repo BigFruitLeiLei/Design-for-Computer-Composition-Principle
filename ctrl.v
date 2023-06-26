@@ -47,6 +47,8 @@ module ctrl(
    wire i_srli = itype_r & ~Funct7[6] & ~Funct7[5] & ~Funct7[4] & ~Funct7[3] & ~Funct7[2] & ~Funct7[1] & ~Funct7[0] & Funct3[2] & ~Funct3[1] & Funct3[0]; // srli 0000000 101
    wire i_srai = itype_r & ~Funct7[6] & Funct7[5] & ~Funct7[4] & ~Funct7[3] & ~Funct7[2] & ~Funct7[1] & ~Funct7[0] & Funct3[2] & ~Funct3[1] & Funct3[0]; // srai 0100000 101
 
+   wire i_jalr =Op[6]&Op[5]&~Op[4]&~Op[3]&Op[2]&Op[1]&Op[0];//jalr 1100111
+   
    // 这段代码实现了对S类型指令（存储指令）的解码，判断指令类型和操作符类型
    wire stype = ~Op[6] & Op[5] & ~Op[4] & ~Op[3] & ~Op[2] & Op[1] & Op[0]; // 0100011
    wire i_sw  = stype & ~Funct3[2] & Funct3[1] & ~Funct3[0]; // sw 010
