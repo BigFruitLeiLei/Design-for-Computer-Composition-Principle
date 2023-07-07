@@ -24,3 +24,5 @@ module dm_controller(mem_w, Addr_in, Data_write, dm_ctrl,
   output [31:0]Data_write_to_dm;
   output [3:0]wea_mem;
 endmodule
+
+
